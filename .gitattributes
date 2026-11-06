@@ -1,0 +1,8 @@
+# 源码统一 LF，二进制不处理
+* text=auto eol=lf
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ttf binary
+*.otf binary

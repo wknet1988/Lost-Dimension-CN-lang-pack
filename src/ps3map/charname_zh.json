@@ -1,0 +1,123 @@
+{
+ "meta": {
+  "desc": "覆盖层汉字角色名表：台词串里的 0x8096 <角色ID> 控制码 → 汉字名。",
+  "source": "work/Data.bra.pre_config_zh.bak 的 Table/Common/CharacterName.mbb（v2 全译本既有汉字译名）；英文对照取自 work/Data.bra.v71_official.bak。",
+  "policy": "沿用既有汉字用字，按中文习惯改为姓前名后；西洋姓名用「·」连接。原表里的「写」是 233 空格误码，已剔除。可直接编辑本文件调整译名，覆盖层无需改代码。",
+  "usage": "0x8096 只在说话人切换时出现；覆盖层会记住上一个 ID，直到遇到新的 0x8096。",
+  "note": "游戏原生名字牌仍输出官方英文，本表只供覆盖层绘制汉字名条。",
+  "first_name": "名牌会显示「汉字全名 + 首名」，如「马可·巴巴托 Marco」。first 是首名（given name）的英文，只给可操作角色填 —— 姬野晓 的英文官方写作 Himeno Akatsuki（日式顺序，姓在前），首名是 Akatsuki 不是 Himeno；NPC（The End / Researcher A / Core Materia / Young Sho）不填，名牌只显示中文名。"
+ },
+ "names": {
+  "1": {
+   "zh": "春日井翔",
+   "en": "Sho Kasugai",
+   "src": "翔 春日井",
+   "first": "Sho"
+  },
+  "2": {
+   "zh": "姬野晓",
+   "en": "Himeno Akatsuki",
+   "src": "姬野 晓",
+   "first": "Akatsuki"
+  },
+  "3": {
+   "zh": "透也·奥伯特",
+   "en": "Toya Orbert",
+   "src": "透也 奥伯特",
+   "first": "Toya"
+  },
+  "4": {
+   "zh": "河合真奈",
+   "en": "Mana Kawai",
+   "src": "真奈 河合",
+   "first": "Mana"
+  },
+  "5": {
+   "zh": "狮子冈凪",
+   "en": "Nagi Shishiouka",
+   "src": "凪 狮子冈",
+   "first": "Nagi"
+  },
+  "6": {
+   "zh": "相良宗次郎",
+   "en": "Sojiro Sagara",
+   "src": "宗次郎 相良",
+   "first": "Sojiro"
+  },
+  "7": {
+   "zh": "前田善治",
+   "en": "Zenji Maeda",
+   "src": "善治 前田",
+   "first": "Zenji"
+  },
+  "8": {
+   "zh": "马可·巴巴托",
+   "en": "Marco Barbato",
+   "src": "马可 巴巴托",
+   "first": "Marco"
+  },
+  "9": {
+   "zh": "橘阳子",
+   "en": "Yoko Tachibana",
+   "src": "阳子 橘",
+   "first": "Yoko"
+  },
+  "10": {
+   "zh": "结城阿基托",
+   "en": "Agito Yuuki",
+   "src": "阿基托 结城",
+   "first": "Agito"
+  },
+  "11": {
+   "zh": "乔治·杰克曼",
+   "en": "George Jackman",
+   "src": "乔治 杰克曼",
+   "first": "George"
+  },
+  "12": {
+   "zh": "终结者",
+   "en": "The End",
+   "src": "终结者"
+  },
+  "13": {
+   "zh": "研究员A",
+   "en": "Researcher A",
+   "src": "研究员A"
+  },
+  "14": {
+   "zh": "研究员B",
+   "en": "Researcher B",
+   "src": "研究员B"
+  },
+  "15": {
+   "zh": "研究员C",
+   "en": "Researcher C",
+   "src": "研究员C"
+  },
+  "16": {
+   "zh": "翔",
+   "en": "翔",
+   "src": "翔"
+  },
+  "17": {
+   "zh": "终结者",
+   "en": "The End",
+   "src": "终结者"
+  },
+  "18": {
+   "zh": "？？？？？",
+   "en": "?????",
+   "src": "…………"
+  },
+  "19": {
+   "zh": "核心玛提亚",
+   "en": "Core Materia",
+   "src": "核心玛提亚"
+  },
+  "20": {
+   "zh": "少年翔",
+   "en": "Young Sho",
+   "src": "少年翔"
+  }
+ }
+}

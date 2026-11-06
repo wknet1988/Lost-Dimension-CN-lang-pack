@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+
+# 构建中间产物（build_release.py 的输出）
+src/publish/
+build/
+dist/
+*.spec
+
+# 浮层运行期输出（截图、日志、预览）
+overlay/
+*.log
+*.png
+!docs/images/*.png
+
+# 游戏本体文件：本仓库不分发，误放进来也不要提交
+*.bra
+*.bra.*
+*.mbb
+*.phyre
+*.bak
+
+# 系统
+Thumbs.db
+desktop.ini
+.DS_Store

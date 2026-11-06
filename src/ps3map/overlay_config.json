@@ -1,0 +1,111 @@
+{
+ "meta": {
+  "desc": "台词覆盖层显示配置。live 默认用「画面识别」定位对白框：每帧抓游戏客户区、按左右竖饰条配对找到框的位置，面板/名字条随框缩放——任意分辨率、黑边、上下双开模式自动适配，无需按分辨率改比例。",
+  "note": "2026-11-06 用户定调：覆盖层必须对齐并盖住原生对白框，原文是否显示不重要；支持上下双开（识别到多个框时面板跟随最下方的框=主说话人）。说话人 ID 取自台词串 0x8096 控制码，汉字名表见 charname_zh.json。识别阈值按 1920x1080 实机对白截图校准：框 (378,756) 1164x174。",
+  "coord_source": "clipboard-2026-11-04T13-28-20-806Z-a9c6f597.jpg + work/tools/detect_boxes.py（饰条配对识别）"
+ },
+ "layout": "auto",
+ "detect": {
+  "stride": 3,
+  "min_accent_h_ratio": 0.05,
+  "max_accent_w_ratio": 0.06,
+  "min_accent_aspect": 1.0,
+  "min_box_h_ratio": 0.1,
+  "min_box_w_ratio": 0.25,
+  "pair_y_tol_ratio": 0.03,
+  "panel_inset_x": 0.008,
+  "panel_inset_y": 0.035,
+  "nameplate_from_box": {
+   "dx": -0.016,
+   "dy": -0.39,
+   "w": 0.436,
+   "h": 0.368,
+   "_note": "名字牌矩形按对白框比例推导（1920x1080 校准：名字牌 (362,688)-(868,752)，框 (380,756)-(1542,930)），随框缩放。"
+  },
+  "_note": "min_*_ratio 均相对画面高/宽；识别失败时自动回落到下方 panel/nameplate 固定比例。"
+ },
+ "panel": {
+  "x_ratio": 0.201,
+  "y_ratio": 0.704,
+  "w_ratio": 0.597,
+  "h_ratio": 0.162,
+  "bilingual_y_ratio": 0.36,
+  "_ratios_note": "cover 默认盖住对白框内部文字区 (0.201,0.704)-(0.798,0.866)，四周内缩约 6px 让原生蓝色圆角框线完整露出；上方名字牌 (y≈0.648-0.694) 保持原生英文输出，不在覆盖范围内。仅 --bilingual 使用 bilingual_y_ratio。"
+ },
+ "nameplate": {
+  "x_ratio": 0.18,
+  "y_ratio": 0.648,
+  "w_ratio": 0.278,
+  "h_ratio": 0.046,
+  "font_size_ratio": 0.032,
+  "min_size": 16,
+  "max_size": 30,
+  "always_draw": false,
+  "_note": "覆盖层汉字名字条，盖住原生英文名字牌。2026-11-06 23:30 起 always_draw=false：拿不到说话人 ID 时不画 —— 画出来只是一条空蓝条，既盖掉了原生英文名、又给不出任何信息（Event 表多数没有 0x8096 控制码，正是这种情况）。"
+ },
+ "cover": true,
+ "font": {
+  "path": "ps3map/fonts/ZhanYaMing_A.ttf",
+  "fallback": [
+   "F:/Font/简中字体/澹雅明体A.ttf",
+   "C:/Windows/Fonts/msyh.ttc",
+   "C:/Windows/Fonts/simhei.ttf"
+  ],
+  "size_ratio": 0.032,
+  "min_size": 16,
+  "max_size": 36,
+  "line_gap": 1.35,
+  "_note": "2026-11-06 改用「澹雅明体A（DYmingA SemiBold）」明体衬线中文字体：项目内副本 ps3map/fonts/ZhanYaMing_A.ttf 优先；回落依次为用户原始 F 盘路径、msyh、simhei。已校验剧情+名字 2353 字全命中、无缺字（tofu）。明体同字号观感略小，故 size_ratio 调 0.032、max_size 调 36。"
+ },
+ "colors": {
+  "bg": [
+   8,
+   16,
+   34,
+   255
+  ],
+  "fg": [
+   240,
+   246,
+   255,
+   255
+  ],
+  "border": [
+   86,
+   196,
+   235,
+   255
+  ],
+  "shadow": [
+   0,
+   0,
+   0,
+   160
+  ]
+ },
+ "opaque": true,
+ "fps": 10,
+ "hotkeys": {
+  "toggle_vk": 123,
+  "mode_vk": 122,
+  "layout_vk": 121,
+  "exit_vk": 81,
+  "require_ctrl": true,
+  "_note": "2026-11-06 热键改为必须按住 Ctrl 才生效：游戏本身用 ESC（菜单/返回）和 F11（全屏切换）等键，之前裸 ESC 退出会让玩家在游戏里一按 ESC 就把覆盖层关掉（表现为「切全屏后覆盖层消失」）。现为 Ctrl+Q 退出 / Ctrl+F12 显隐 / Ctrl+F11 遮挡-浮标 / Ctrl+F10 定位方式。",
+  "screen_vk": 120,
+  "shot_vk": 119,
+  "_screen_note": "Ctrl+F9 切换「画面文本覆盖」（选单/道具说明/教程提示等），Ctrl+F8 抓现场图到 work/overlay/shot_manual.png（校准与排错用）"
+ },
+ "memory": {
+  "table_manager_va": 10921172,
+  "message_object_va": 10921300,
+  "text_buffer_off": 152,
+  "idx_off": 135248,
+  "table_array_off": 135264,
+  "table_stride": 88,
+  "scan_span": 2048,
+  "max_codes": 300
+ },
+ "screen_text_seconds": 2.0,
+ "_screen_text_note": "画面识别轮询间隔（秒）。每次识别前会临时藏起盖板抓一张干净画面，间隔太短会看到闪烁，太长则换界面后中文更新慢。"
+}
